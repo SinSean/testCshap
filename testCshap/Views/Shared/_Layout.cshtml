@@ -45,7 +45,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse fs-3 mt-2 ">
+            <nav id="sidebarMenu" class="overflow-auto col-md-3 col-lg-2 d-md-block bg-light sidebar collapse fs-3 mt-2 ">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         @* 會員管理 *@
@@ -59,18 +59,18 @@
                             <div class="collapse fs-5" id="MemberSubmenu">
                                 <ul class="nav flex-column ms-3">
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex align-items-center" href="#">
+                                        <a class="nav-link d-flex align-items-center" asp-area="" asp-controller="Member" asp-action="List">
                                             <span data-feather="list"></span>會員清單
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex align-items-center" href="#">
+                                        <a class="nav-link d-flex align-items-center" href="member/Block_List">
                                             <span data-feather="award"></span>等級權限設定
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex align-items-center" href="#">
-                                            <span data-feather="slash"></span>黑名單管理
+                                        <a class="nav-link d-flex align-items-center" asp-area="" asp-controller="Member" asp-action="Block_List">
+                                            <span data-feather="slash"></span>黑名單列表
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -250,6 +250,41 @@
     <script>
       feather.replace()
     </script> -->
+
+    @* <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. 取得當前網址的路徑 (例如: /Member/List)
+            var currentPath = window.location.pathname;
+
+            // 2. 遍歷所有的子選單連結
+            var navLinks = document.querySelectorAll('#sidebarMenu .nav-link');
+
+            navLinks.forEach(function (link) {
+                var href = link.getAttribute('href');
+
+                // 3. 如果連結的 href 包含在當前網址中 (排除首頁或空連結)
+                if (href && href !== '#' && currentPath.includes(href)) {
+                    // 4. 向上尋找最近的 .collapse 容器並展開它
+                    var parentCollapse = link.closest('.collapse');
+                    if (parentCollapse) {
+                        parentCollapse.classList.add('show');
+
+                        // 5. 選項：同步更新父層按鈕的 aria-expanded 狀態，避免第一次點擊失效
+                        var toggleBtn = document.querySelector(`[href="#${parentCollapse.id}"]`);
+                        if (toggleBtn) {
+                            toggleBtn.setAttribute('aria-expanded', 'true');
+                            toggleBtn.classList.remove('collapsed');
+                        }
+
+                        // 6. 選項：將當前連結標示為活躍狀態 (Active)
+                        link.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script> *@
+
+
 </body>
 
 </html>

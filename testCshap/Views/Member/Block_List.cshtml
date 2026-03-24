@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<testCshap.Models.TMember>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "Block_List";
 }
 
-<h1>會員清單</h1>
+<h1>黑名單列表</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -35,7 +32,7 @@
             {
 
                 <tr>
-                    @if(item.FIsActive==true)
+                    @if (item.FIsActive == false)
                     {
                         <td>
                             @Html.DisplayFor(modelItem => item.FMemberId)
@@ -53,8 +50,7 @@
                             @Html.DisplayFor(modelItem => item.FLoginTime)
                         </td>
                         <td>
-                            @Html.ActionLink("編輯", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("黑名單", "Delete", new { /* id=item.PrimaryKey */ })
+                            @Html.ActionLink("解除黑名單", "Remove_Block", new { /* id=item.PrimaryKey */ })
                         </td>
                     }
                 </tr>
