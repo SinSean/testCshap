@@ -1,0 +1,143 @@
+﻿@model IEnumerable<testCshap.Models.TMember>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FMemberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FCreatedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FUpdatedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FIsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FReceiverName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FReceiverPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FReceiverAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FLoginTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FIpAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FWishlist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FMemberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FCreatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FUpdatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FReceiverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FReceiverPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FReceiverAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FLoginTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIpAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FWishlist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FImage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
