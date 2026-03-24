@@ -43,7 +43,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse fs-3 mt-2 ">
+            <nav id="sidebarMenu" class="overflow-auto col-md-3 col-lg-2 d-md-block bg-light sidebar collapse fs-3 mt-2 ">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
 
@@ -58,18 +58,18 @@
                             <div class="collapse fs-5" id="MemberSubmenu">
                                 <ul class="nav flex-column ms-3">
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex align-items-center" href="#">
+                                        <a class="nav-link d-flex align-items-center" asp-area="" asp-controller="Member" asp-action="List">
                                             <span data-feather="list"></span>會員清單
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex align-items-center" href="#">
+                                        <a class="nav-link d-flex align-items-center" href="member/Block_List">
                                             <span data-feather="award"></span>等級權限設定
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex align-items-center" href="#">
-                                            <span data-feather="slash"></span>黑名單管理
+                                        <a class="nav-link d-flex align-items-center" asp-area="" asp-controller="Member" asp-action="Block_List">
+                                            <span data-feather="slash"></span>黑名單列表
                                         </a>
                                     </li>
                                     <li class="nav-item">
