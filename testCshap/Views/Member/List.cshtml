@@ -53,9 +53,10 @@
                             @Html.DisplayFor(modelItem => item.FLoginTime)
                         </td>
                         <td>
-                            @Html.ActionLink("編輯", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("黑名單", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>
+                            @Html.ActionLink("修改", "Edit", "Member", new { id = @item.FId }, null) |
+                            @Html.ActionLink("刪除", "Delete", "Member", new { id = @item.FId },
+                            new { onclick = "return confirm('確定要刪除嗎?')" })
+            </td>
                     }
                 </tr>
             }
