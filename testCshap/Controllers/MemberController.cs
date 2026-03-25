@@ -63,6 +63,19 @@ namespace testCshap.Controllers
             }
             return RedirectToAction("List");
         }
+
+        public IActionResult Restore(int? id)
+        {
+            DbShizukuDemoContext db = new DbShizukuDemoContext();
+            TMember x = db.TMembers.FirstOrDefault(p => p.FId == id);
+            if (x != null)
+            {
+                x.FIsActive = true;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Block_List");
+        }
+
         //public IActionResult Edit(int? id)
         //{
         //    DbDemoContext db = new DbDemoContext();
