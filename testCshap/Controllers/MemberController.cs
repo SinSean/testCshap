@@ -86,6 +86,12 @@ namespace testCshap.Controllers
             DbShizukuDemoContext db = new DbShizukuDemoContext();
             db.TMembers.Add(p);
             db.SaveChanges();
+
+            int padLength = 3; //長度編號為:M0000 未來長度只改這行 2代表M00 3代表M000
+            p.FMemberId = "M" + p.FId.ToString("D" + padLength);    //0001 0010 0100...解決格式化問題
+            p.FAccount = p.FEmail;
+
+            db.SaveChanges();
             return RedirectToAction("List");
         }
 
@@ -105,9 +111,9 @@ namespace testCshap.Controllers
             if (dbCustomer != null)
             {
                 dbCustomer.FName = uiCustomer.FName;
+                dbCustomer.FEmail = uiCustomer.FEmail;
                 dbCustomer.FPassword = uiCustomer.FPassword;
                 dbCustomer.FPhone = uiCustomer.FPhone;
-                dbCustomer.FEmail = uiCustomer.FEmail;
                 db.SaveChanges();
             }
             return RedirectToAction("List");
