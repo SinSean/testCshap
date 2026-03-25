@@ -76,29 +76,41 @@ namespace testCshap.Controllers
             return RedirectToAction("Block_List");
         }
 
-        //public IActionResult Edit(int? id)
-        //{
-        //    DbDemoContext db = new DbDemoContext();
-        //    TCustomer x = db.TCustomers.FirstOrDefault(p => p.FId == id);
-        //    if (x == null)
-        //        return RedirectToAction("List");
-        //    return View(x);
-        //}
-        //[HttpPost]
-        //public IActionResult Edit(TCustomer uiCustomer)
-        //{
-        //    DbDemoContext db = new DbDemoContext();
-        //    TCustomer dbCustomer = db.TCustomers.FirstOrDefault(p => p.FId == uiCustomer.FId);
-        //    if (dbCustomer != null)
-        //    {
-        //        dbCustomer.FName = uiCustomer.FName;
-        //        dbCustomer.FPassword = uiCustomer.FPassword;
-        //        dbCustomer.FPhone = uiCustomer.FPhone;
-        //        dbCustomer.FEmail = uiCustomer.FEmail;
-        //        dbCustomer.FAddress = uiCustomer.FAddress;
-        //        db.SaveChanges();
-        //    }
-        //    return RedirectToAction("List");
-        //}
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(TMember p)
+        {
+            DbShizukuDemoContext db = new DbShizukuDemoContext();
+            db.TMembers.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            DbShizukuDemoContext db = new DbShizukuDemoContext();
+            TMember x = db.TMembers.FirstOrDefault(p => p.FId == id);
+            if (x == null)
+                return RedirectToAction("List");
+            return View(x);
+        }
+        [HttpPost]
+        public IActionResult Edit(TMember uiCustomer)
+        {
+            DbShizukuDemoContext db = new DbShizukuDemoContext();
+            TMember dbCustomer = db.TMembers.FirstOrDefault(p => p.FId == uiCustomer.FId);
+            if (dbCustomer != null)
+            {
+                dbCustomer.FName = uiCustomer.FName;
+                dbCustomer.FPassword = uiCustomer.FPassword;
+                dbCustomer.FPhone = uiCustomer.FPhone;
+                dbCustomer.FEmail = uiCustomer.FEmail;
+                db.SaveChanges();
+            }
+            return RedirectToAction("List");
+        }
     }
 }
