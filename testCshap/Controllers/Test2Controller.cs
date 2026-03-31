@@ -12,5 +12,10 @@ namespace testCshap.Controllers
         {
             return "Hello";
         }
+
+        public string Hello2()
+        {
+            return "Hello2";
+        }
     }
 }
