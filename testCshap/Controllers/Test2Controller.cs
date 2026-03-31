@@ -8,5 +8,9 @@ namespace testCshap.Controllers
         {
             return View();
         }
+        public string Hello()
+        {
+            return "Hello";
+        }
     }
 }
